@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Happy 1st Anniversary 💖</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* =========================
+       CUSTOMIZATION
+    ========================== */
+
+    :root {
+      --pink: #e89aaa;
+      --dark-pink: #b95770;
+      --cream: #fff8f3;
+      --rose: #f8d9df;
+      --gold: #c9a45c;
+      --text: #573d45;
+      --white: #ffffff;
+      --shadow: 0 15px 40px rgba(150, 80, 100, 0.15);
+    }
+
+    /* =========================
+       GENERAL
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    section {
+      padding: 90px 20px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--dark-pink);
+    }
+
+    .section-title p {
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+
+    /* =========================
+       OPENING SCREEN
+    ========================== */
+
+    #opening {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background:
+        radial-gradient(circle at 20% 20%, #ffe6ec, transparent 35%),
+        radial-gradient(circle at 80% 80%, #f8e5c8, transparent 35%),
+        var(--cream);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #opening.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .opening-content {
+      padding: 30px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .opening-content .heart {
+      font-size: 65px;
+      animation: heartbeat 1.5s infinite;
+      margin-bottom: 20px;
+    }
+
+    .opening-content h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--dark-pink);
+      line-height: 0.95;
+    }
+
+    .opening-content p {
+      margin: 25px auto;
+      max-width: 600px;
+      font-size: 1rem;
+      opacity: 0.75;
+    }
+
+    .open-btn,
+    .surprise-btn {
+      border: none;
+      background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-family: "Poppins", sans-serif;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 25px rgba(185, 87, 112, 0.3);
+      transition: 0.3s ease;
+    }
+
+    .open-btn:hover,
+    .surprise-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background:
+        linear-gradient(
+          rgba(255, 248, 243, 0.75),
+          rgba(255, 248, 243, 0.95)
+        ),
+        url("YOUR-HERO-IMAGE.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .small-title {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 10vw, 8rem);
+      color: var(--dark-pink);
+      line-height: 0.85;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 30px auto;
+      line-height: 1.9;
+      opacity: 0.8;
+    }
+
+    /* =========================
+       FLOATING HEARTS
+    ========================== */
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      z-index: 10;
+      animation: floatUp linear forwards;
+      opacity: 0.7;
+    }
+
+    /* =========================
+       TIMELINE
+    ========================== */
+
+    .timeline {
+      position: relative;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--rose);
+      transform: translateX(-50%);
+    }
+
+    .memory {
+      width: 50%;
+      padding: 20px 40px;
+      position: relative;
+    }
+
+    .memory:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .memory:nth-child(even) {
+      left: 50%;
+    }
+
+    .memory-card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(201, 164, 92, 0.15);
+      backdrop-filter: blur(5px);
+    }
+
+    .memory-card h3 {
+      font-size: 1.8rem;
+      color: var(--dark-pink);
+    }
+
+    .memory-card .date {
+      color: var(--gold);
+      font-size: 0.8rem;
+      margin: 8px 0;
+    }
+
+    .memory-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.8;
+    }
+
+    .memory-dot {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--pink);
+      border: 4px solid var(--cream);
+      top: 35px;
+      right: -7px;
+      z-index: 2;
+    }
+
+    .memory:nth-child(even) .memory-dot {
+      left: -7px;
+    }
+
+    /* =========================
+       REASONS
+    ========================== */
+
+    .reasons {
+      background: linear-gradient(180deg, #fff8f3, #fce8ed);
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .reason-card {
+      background: rgba(255, 255, 255, 0.75);
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: 0.4s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .reason-icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .reason-card h3 {
+      color: var(--dark-pink);
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .reason-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.8;
+    }
+
+    /* =========================
+       PHOTO / GALLERY
+    ========================== */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo {
+      height: 300px;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.08);
+    }
+
+    /* =========================
+       LOVE LETTER
+    ========================== */
+
+    .letter-section {
+      background: #fff0f3;
+    }
+
+    .letter {
+      max-width: 800px;
+      margin: auto;
+      background: #fffdfb;
+      padding: clamp(30px, 6vw, 65px);
+      border-radius: 5px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .letter::before {
+      content: "♡";
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 50px;
+      color: var(--rose);
+    }
+
+    .letter h3 {
+      font-size: 2.5rem;
+      color: var(--dark-pink);
+      margin-bottom: 25px;
+    }
+
+    .letter p {
+      line-height: 2;
+      font-size: 1rem;
+      white-space: pre-line;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--dark-pink);
+    }
+
+    /* =========================
+       SURPRISE
+    ========================== */
+
+    .surprise {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, #ffe5eb, transparent 60%),
+        var(--cream);
+    }
+
+    .surprise-box {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .surprise-box h2 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      color: var(--dark-pink);
+      margin-bottom: 20px;
+    }
+
+    #promise {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 1s ease, opacity 0.8s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    #promise.show {
+      max-height: 400px;
+      opacity: 1;
+      margin-top: 35px;
+    }
+
+    .promise-text {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--dark-pink);
+      line-height: 1.3;
+    }
+
+    /* =========================
+       MUSIC BUTTON
+    ========================== */
+
+    .music-control {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 100;
+    }
+
+    .music-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: none;
+      background: var(--dark-pink);
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #573d45;
+      color: white;
+    }
+
+    footer p {
+      opacity: 0.8;
+      font-size: 0.85rem;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.7;
+      }
+
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 700px) {
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .memory,
+      .memory:nth-child(even),
+      .memory:nth-child(odd) {
+        width: 100%;
+        left: 0;
+        padding: 15px 10px 15px 35px;
+        text-align: left;
+      }
+
+      .memory-dot,
+      .memory:nth-child(even) .memory-dot {
+        left: 3px;
+        right: auto;
+      }
+
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        height: 350px;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================
+       OPENING SCREEN
+  ====================================== -->
+
+  <div id="opening">
+
+    <div class="opening-content">
+
+      <div class="heart">💖</div>
+
+      <h1>
+        Happy 1st<br>
+        Anniversary
+      </h1>
+
+      <p>
+        To <strong>[Akanksha (dhan💗)]</strong> — one beautiful year,
+        countless memories, and so many more moments waiting for us.
+      </p>
+
+      <button class="open-btn" onclick="openWebsite()">
+        Open My Heart 💌
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================
+       OPTIONAL MUSIC
+  ====================================== -->
+
+  <audio id="loveSong" loop>
+    <!-- Replace [Song Link] with your music file/link -->
+    <source src="preet-re.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="music-control">
+    <button class="music-btn" onclick="toggleMusic()" id="musicButton">
+      🎵
+    </button>
+  </div>
+
+
+  <!-- =====================================
+       HERO
+  ====================================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        [22/09/2026] • Our First Year
+      </div>
+
+      <h1>
+        One Year.<br>
+        <span>One Love.</span>
+      </h1>
+
+      <p>
+        One year ago, our story began.
+        Since then, every smile, every conversation,
+        every little moment has become a beautiful part
+        of my favorite story — <strong>ours.</strong>
+      </p>
+
+      <button class="open-btn"
+              onclick="document.getElementById('memories').scrollIntoView()">
+        Our Memories ↓
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       MEMORIES / TIMELINE
+  ====================================== -->
+
+  <section id="memories">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our Little Story</h2>
+        <p>A year filled with moments I'll always remember.</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- MEMORY 1 -->
+        <div class="memory">
+
+          <div class="memory-card">
+
+            <div class="memory-dot"></div>
+
+            <h3>Our Beginning</h3>
+
+            <div class="date">
+              [22/09/2025]
+            </div>
+
+            <p>
+              On this date i started falling in love with my life. i started feeling happy, i started smiliing, and my life began to feel bueatiful. i started feeling afraid of losing what i had, yet somehow, i also became fearless. it feel like i had finally reached my destination, and i had found everything i had ever wanted in life MY EVERYTHING 🌏❤️
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEMORY 2 -->
+        <div class="memory">
+
+          <div class="memory-card">
+
+            <div class="memory-dot"></div>
+
+            <h3>That Special Day</h3>
+
+            <div class="date">
+              [13/01/2026]
+            </div>
+
+            <p>
+              [This was the day I met you for the very first time. The moment I saw you, my mind and body went completely numb, as if I had just seen the most beautiful person in the world. When I met you, it didn’t feel like something new or unfamiliar. It felt as if we had known each other for years. You felt so familiar, as if we had been a part of each other’s lives for so long. Holding your hand made me feel like I could take on the whole world. 😭🫂
+
+We created so many memories on our very first meeting. We took photos, fed each other, and do you know what the most beautiful moment was? It was when you saved my jeans from getting covered in Oreo shake. You got your own hand messy, but you didn’t let my jeans get dirty.
+
+Yes, yes, I know it spilled a little because of my own stupidity 😂, but still, you saved me from it. 🥹
+
+Honestly, that was one of the most beautiful moments in the world for me. It made me feel like you would always protect me from all the little things life throws at me. I felt completely safe and comfortable with you, right from our very first meeting. 🥹🫂]
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEMORY 3 -->
+        <div class="memory">
+
+          <div class="memory-card">
+
+            <div class="memory-dot"></div>
+
+            <h3>A Favorite Memory</h3>
+
+            <div class="date">
+              [our video calls]
+            </div>
+
+            <p>
+              [One of my favorite memories is our daily video calls. And most of the time, our video calls stay muted, just because of our families. But even through those muted video calls, we have created so many beautiful memories that I honestly don’t have enough words to describe them. 🥹
+
+Watching each other while we work, waiting for each other, making funny faces, teasing and annoying each other—every one of those little moments will always remain unforgettable. ❤️
+
+Those video calls might look completely normal, but they are anything but normal to us. Have you ever noticed how happy we are on those calls? How much we laugh, how we keep talking through our little gestures, and how we still manage to express our love without even saying a word? 🫂
+
+And the best part? Sometimes, we even fall asleep while staying on the video call. 🥹❤️
+
+Those are the kind of moments that will always remain unforgettable and stay with us for a lifetime. 🫂❤️]
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEMORY 4 -->
+        <div class="memory">
+
+          <div class="memory-card">
+
+            <div class="memory-dot"></div>
+
+            <h3>Today</h3>
+
+            <div class="date">
+              [22/09/2026]
+            </div>
+
+            <p>
+              And here we are, celebrating one beautiful year together. And today, we are celebrating our first relationship anniversary with the same love, the same passion, the same care, and the same interest that we have always had for each other. ❤️
+
+I am so proud of our love, and especially proud of you, because through your love and efforts, you never let our relationship fade away with time like many relationships do.
+
+The same love, care, and interest that we showed each other in the early days of our relationship are still just as strong today. And I hope they remain this way for the rest of our lives. 🥹🫂
+
+May God keep us together for a lifetime, and may we continue to live our lives beautifully, side by side, creating countless more memories together. ❤️
+
+HAPPY 1ST YEAR OF OUR RELATIONSHIP ANNIVERSARY, MY UNIVERSE . ❤️🫂
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       REASONS I LOVE YOU
+  ====================================== -->
+
+  <section class="reasons">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Reasons I Love You</h2>
+        <p> I don’t need a reason to love you, but I still want to tell you all the little things I love about you.
+
+I love you because you are the best.
+I love you because you are perfect for me.
+I love you because you never disappoint me.
+I love you because you always stand by my side.
+I love you because you always help me.
+I love you because you consider even my smallest problems as your own and always stand by me through them.
+I love you because you are Akanksha, and there is no one else like you. 🥹
+I love you because you never intentionally hurt me.
+I love you because you love me even more.
+I love your efforts.
+I love the way you talk.
+I love your voice.
+I love your smile.
+I love every little thing you do.
+I love everything about you.
+
+I LOVE YOU ALWAYS, MY LOVE. ❤️🫂 And honestly, I could keep going forever...</p>
+      </div>
+
+
+      <div class="reason-grid">
+
+        <div class="reason-card">
+          <div class="reason-icon">🌸</div>
+
+          <h3>Your Smile</h3>
+
+          <p>
+            [Your smile is not just a smile. It is the medicine for all my stress, sadness, problems, irritation, and those moments when I feel low. 🥹
+
+Whenever you smile, I feel like, “Wait… how did everything suddenly become okay?” How did everything become so light and peaceful all of a sudden?
+
+You know, Akanksha, whenever I feel heavy because of some tension, my head starts hurting, I stay irritated, I feel a heaviness in my chest, and sometimes I even cry. But the moment you come on a video call, give me that cute little smile, and talk to me with just one or two gestures, I instantly feel like all my problems, stress, losses, and heaviness have disappeared. It feels like I can finally relax. 🥹🫂
+
+I don’t know what magic your smile has, but whatever it is, it works like a medicine for me. 🫂 And yes, please keep giving me this medicine for the rest of my life, because I think I’ve forgotten how to live without it now. 🥹🫂
+
+YOUR SMILE = MEDICINE FOR ME 🧿❤️]
+          </p>
+        </div>
+
+
+        <div class="reason-card">
+          <div class="reason-icon">🤍</div>
+
+          <h3>Your Heart</h3>
+
+          <p>
+            [Your Heart 🥹❤️
+
+You know, Akanksha, maybe you don’t realize this about your own heart, but I do. You may not show it, but you are such a soft-hearted person. You may not express it much, but I feel like you love me even more than I love you. Maybe you don’t always know how to show it, but you care about me so much. Your heart knows the truth behind all of this. 🥹
+
+And seriously, you are such a pure-hearted person that I genuinely feel lucky to have you in my life. 🥹❤️
+
+Akanksha, please always let your heart stay with me. 😭 I promise I’ll take care of it, protect it, and love it for the rest of my life. 😌🫂
+
+And one more thing… your heart is so soft that you don’t even think badly about strangers, so how could you ever think badly about me? 🥹
+
+You are the best. Always stay exactly the way you are—with this same beautiful heart and this same softness. ❤️
+
+I will always love you and your heart, and I’ll always take care of it, making sure that nothing ever hurts it, because it’s so soft and precious. 😭🫂
+
+I will never hurt it. I will always love you.
+
+ALWAYS! ❤️🧿]
+          </p>
+        </div>
+
+
+        <div class="reason-card">
+          <div class="reason-icon">✨</div>
+
+          <h3>The Little Things</h3>
+
+          <p>
+            [Those Little Things 😭😭❤️
+
+I already know that if I start writing about all the little things we’ve shared, this page will never be enough, because honestly, it’s these small little moments that have created most of our beautiful memories. Still, I’ll try to fit as many as I can into a few words. 🥹
+
+Do you remember, Bubu, when you saved my jeans from the Oreo shake by putting your hand in between? It was such a small thing, but it was really special to me. 🥹
+
+Do you remember when I brought jhumkas and a bindi for you, and you wore them in front of me and said, “It looks really good”? That little moment was so special to me. ❤️
+
+Do you remember when I was feeding you and I just wouldn’t stop, and you said, “Arey dheere khilao, abhi muh me hai khana!” 😂 That was such a cute little moment, and it’s special to me.
+
+Do you remember when you were telling me how to pose, and while showing me the pose, we ended up getting a little closer? It may have been a small moment, but it was really special to me. 🥹
+
+Every time you feed me with your own hands, that is special to me.
+
+Every paragraph you write in English just for me—all of them are special to me.
+
+When you make an online payment and treat me to pizza, that is special to me. 🍕❤️
+
+When you tease me with your little gestures, that is special to me too. 😂
+
+When you scold me, that is special to me.
+
+When you try to make me feel better after I’m upset, that is special to me.
+
+When I make a mistake and you explain things to me, that is special to me too.
+
+There are thousands of these little things that are special to me. Maybe you think, “Come on, these are just normal things,” but for me, these are exactly the things that matter the most.
+
+These little things are what make our love grow stronger and keep us happy together. 🥹🫂
+
+And I hope these little things always remain a part of our life, no matter how much time passes. 🥹🫂
+
+I LOVE YOU AND I LOVE ALL OUR LITTLE THINGS. 💕🫂]
+          </p>
+        </div>
+
+
+        <div class="reason-card">
+          <div class="reason-icon">🥰</div>
+
+          <h3>Our Laughs</h3>
+
+          <p>
+            [Our laughs 😌
+
+You know, whenever we laugh together, life suddenly feels so beautiful, doesn’t it? 🥹❤️
+It feels like, what more could we possibly need when we’re this happy together? 🧿
+
+And every time you make fun of me, tease me with your little gestures, and even call me “bail” 😂, and I tease you back, make funny faces, and mess around with you…
+After all of that, the laughter we share makes everything worth it. ❤️
+
+No matter what the world says about us, as long as I can make you laugh and you can make me laugh, that’s all that matters. After that, neither you need to overthink anything, nor do I.
+
+We’re happy together, and honestly, that’s more than enough. 🫂❤️
+
+And one more promise from my side — I’ll keep making you laugh and keep you happy for the rest of your life. 🫂😚🧿]
+          </p>
+        </div>
+
+
+        <div class="reason-card">
+          <div class="reason-icon">🌙</div>
+
+          <h3>Your Presence</h3>
+
+          <p>
+            [Even though we are in a long-distance relationship, your calls, messages, and video calls make me feel like you are right beside me. Sometimes, when I think about you, I can almost see you in front of me. Whenever you fall asleep and I can’t sleep at night, I talk to you, and somehow, it makes me feel your presence. ❤️
+
+Even though we have only met each other five times, every time we meet, both my mind and my body go completely numb. It feels as if we are meeting after years and years.
+
+My heart wishes that I could stay in your presence 24/7, but what can we really do about this long distance? 🙂
+
+Your presence creates those moments when I feel the safest and most comfortable. It feels like everything is okay now, like I don’t need anything else.
+
+My only fight is to have your presence in my life—to be with you, to be close to you, and to be yours.
+
+Your presence is so special to me because it truly feels like therapy for every problem I have.
+
+Will you always stay by my side and be my therapy? 🥹
+
+“MY THERAPY” 🌏❤️]
+          </p>
+        </div>
+
+
+        <div class="reason-card">
+          <div class="reason-icon">💖</div>
+
+          <h3>Just You</h3>
+
+          <p>
+            [Sometimes I love you simply because you're you 🌏❤️🫂]
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       PHOTO GALLERY
+  ====================================== -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Moments</h2>
+
+        <p>
+          Sorry bubu, we’re not using our own photos here because I would have to upload this as a website. Yes, there is a private-site option too, but still, I don’t want to take any risk. So these are just Google photos—try to imagine them as us and relate them to ourselves. 🫂❤️😚
+        </p>
+
+      </div>
+
+
+      <div class="gallery">
+
+        <div class="photo">
+          <img
+            src="photo-1.jpg"
+            alt="Our memory">
+        </div>
+
+        <div class="photo">
+          <img
+            src="photo-2.jpg"
+            alt="Our memory">
+        </div>
+
+        <div class="photo">
+          <img
+            src="photo-3.jpg"
+            alt="Our memory">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       LOVE LETTER
+  ====================================== -->
+
+  <section class="letter-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>A Letter For You</h2>
+
+        <p>
+          Some things are easier to write than to say.
+        </p>
+
+      </div>
+
+
+      <div class="letter">
+
+        <h3>My Love,</h3>
+
+        <p>
+[Love Note]
+
+One year with you has given me so many memories
+that I don't even know where to begin.
+
+Thank you for every conversation,
+every laugh, every little moment,
+and for simply being a part of my life.
+
+I don't know what the future has planned for us,
+but I know that I want to keep making beautiful
+memories with you.
+
+Happy 1st Anniversary, [AKANSHA]. ❤️
+
+Here's to our first year...
+and to all the beautiful chapters still waiting to be written.
+And I just want to say one thing to you: never let this beautiful love of ours become dull or lose its spark. Stay like this for a lifetime—with the same interest, the same excitement, and the same love. ❤️
+
+I promise you that I will stand by your side for the rest of my life. I will always be there for you, and whenever you feel like you need me, you’ll find me by your side with just one call. 🫂
+
+You also promise me that you’ll stay with me for a lifetime, that you’ll always love me, and that you’ll always support me. Promise? I know you’ll always be there for me anyway 😌🫂, but still, promise me.
+
+May God always keep us this happy and keep us together for the rest of our lives. ❤️🧿
+
+I love you, MY UNIVERSE — my Suggi, my Muggi, my Dhaniya, my Pudina, my Kuchu, my Puchu, my Shona, my Chandi, my Heera, my Moti, my Bubu, my Rasmalai, my Kaju Katli, and my everything in this life. 🫂😚
+
+I LOVE YOU SO SO SO SO MUCHHH 🌏🧿❤️🫂
+        </p>
+
+        <div class="signature">
+          Forever yours,<br>
+          [Adityaa] 💖
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       FINAL SURPRISE
+  ====================================== -->
+
+  <section class="surprise">
+
+    <div class="container">
+
+      <div class="surprise-box">
+
+        <div class="section-title">
+
+          <h2>One Last Thing...</h2>
+
+          <p>
+            I saved something special for you.
+          </p>
+
+        </div>
+
+
+        <button class="surprise-btn" onclick="showPromise()">
+          Open My Promise 💝
+        </button>
+
+
+        <div id="promise">
+
+          <p class="promise-text">
+            "I promise to keep choosing you,
+            keep making memories with you,
+            and keep appreciating every little moment
+            that makes our story ours.
+            And finally, i promise you that i'll 
+            spend my whole life by your side.
+            i'll stand beside you at every turm where you need 
+            me-and i'll still be there, because i love you , Bubu❤️🌏🫂            "
+          </p>
+
+          <div style="margin-top:25px;font-size:2rem;">
+            ❤️ ∞ ❤️
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer>
+
+    <p>
+      Made with love by [Adityaa] ❤️
+    </p>
+
+    <p style="margin-top:8px;">
+      [22/09/2026] • Our First Anniversary
+    </p>
+
+  </footer>
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script>
+
+    /* =========================
+       OPEN WEBSITE
+    ========================== */
+
+    function openWebsite() {
+
+      const opening = document.getElementById("opening");
+
+      opening.classList.add("hide");
+
+      // Start music after user interaction
+      const song = document.getElementById("loveSong");
+
+      if (song && song.src && !song.src.includes("[Song Link]")) {
+
+        song.play().catch(() => {
+          console.log("Music requires user interaction.");
+        });
+
+      }
+
+    }
+
+
+    /* =========================
+       MUSIC CONTROLLER
+    ========================== */
+
+    let musicPlaying = false;
+
+    function toggleMusic() {
+
+      const song = document.getElementById("loveSong");
+      const button = document.getElementById("musicButton");
+
+      if (!song) return;
+
+      if (musicPlaying) {
+
+        song.pause();
+
+        button.innerHTML = "🎵";
+
+        musicPlaying = false;
+
+      } else {
+
+        song.play().catch(() => {
+          alert("Please add your song link in the HTML first.");
+        });
+
+        button.innerHTML = "⏸️";
+
+        musicPlaying = true;
+
+      }
+
+    }
+
+
+    /* =========================
+       SURPRISE BUTTON
+    ========================== */
+
+    function showPromise() {
+
+      const promise = document.getElementById("promise");
+
+      promise.classList.toggle("show");
+
+      if (promise.classList.contains("show")) {
+
+        createHeartBurst();
+
+      }
+
+    }
+
+
+    /* =========================
+       FLOATING HEARTS
+    ========================== */
+
+    function createFloatingHeart() {
+
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      const hearts = ["♥", "♡", "💗", "💖", "✨"];
+
+      heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+      heart.style.fontSize =
+        (12 + Math.random() * 22) + "px";
+
+      heart.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 12000);
+
+    }
+
+
+    // Create hearts periodically
+    setInterval(createFloatingHeart, 900);
+
+
+    /* =========================
+       HEART BURST
+    ========================== */
+
+    function createHeartBurst() {
+
+      for (let i = 0; i < 18; i++) {
+
+        setTimeout(() => {
+
+          const heart = document.createElement("div");
+
+          heart.className = "floating-heart";
+
+          heart.innerHTML =
+            ["💖", "💗", "💕", "✨"][Math.floor(Math.random() * 4)];
+
+          heart.style.left =
+            (35 + Math.random() * 30) + "vw";
+
+          heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+          heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 7000);
+
+        }, i * 100);
+
+      }
+
+    }
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================== */
+
+    const cards =
+      document.querySelectorAll(
+        ".memory-card, .reason-card, .photo, .letter"
+      );
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.style.animation =
+                "fadeUp 1s ease forwards";
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+
+    cards.forEach(card => {
+
+      card.style.opacity = "0";
+
+      observer.observe(card);
+
+    });
+
+  </script>
+
+</body>
+</html>
